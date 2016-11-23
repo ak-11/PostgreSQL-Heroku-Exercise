@@ -1,7 +1,12 @@
 "use strict";
 
-const settings = require("./knexfile");
-const knex = require("knex")(settings.development);
+const knex_configs = require("./knexfile").developmenmt.connection;
+
+const pg = require("knex")({
+  client: "pg",
+  connection: knex_configs,
+  debug: famous_people
+});
 
 const firstName = process.argv[2];
 const lastName = process.argv[3];
